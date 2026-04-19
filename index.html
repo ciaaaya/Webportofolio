@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya - Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== HEADER & NAVBAR (TAG SEMANTIK) ========== -->
+    <header>
+        <nav>
+            <h2 class="logo">MyPortofolio</h2>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#proyek">Proyek</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sisanya (Home, Proyek, Kontak, Footer) tetap sama -->
+
+    <!-- ========== HOME / BERANDA ========== -->
+    <section id="home">
+        <div class="home-container">
+            <div class="home-image">
+    <!-- Ganti "foto-saya.jpg" dengan file foto asli Anda -->
+    <img src="images/foto-saya.jpg.jpeg" alt="Foto Profil" class="profile-img">
+</div>
+<div class="home-text">
+    <h1>Fausiah Lango-lango</h1>  <!-- Ganti dengan nama Anda -->
+    <p class="deskripsi">
+        Halo! Saya adalah mahasiswa sistem komputer yang tertarik pada teknologi dan pengembangan website. 
+        Saya memiliki passion dalam membangun website yang menarik, fungsional, dan responsif.
+    </p>
+    <p class="skill">
+        <strong>Skill:</strong> HTML, CSS, JavaScript, React (belajar), PHP (dasar)
+    </p>
+</div>
+           
+        </div>
+    </section>
+
+    <!-- ========== PROYEK ========== -->
+    <section id="proyek">
+        <h2 class="section-title">Proyek Saya</h2>
+        <div class="proyek-container">
+
+            <!-- Proyek 1 -->
+            <div class="proyek-card">
+                <img src="images/th.webp" alt="Proyek 1" class="proyek-img">
+                <h3>Aplikasi Todo List</h3>
+                <p class="short-desc">Aplikasi sederhana untuk mencatat kegiatan sehari-hari.</p>
+                <button class="btn-detail" onclick="toggleDetail('detail1')">Lihat Detail</button>
+                <div id="detail1" class="detail-desc" style="display: none;">
+                    <p>Proyek ini dibangun dengan HTML, CSS, dan JavaScript murni. Fitur: tambah tugas, tandai selesai, hapus tugas, dan menyimpan data di localStorage.</p>
+                </div>
+            </div>
+
+            <!-- Proyek 2 -->
+            <div class="proyek-card">
+                <img src="images/th (1).webp" alt="Proyek 2" class="proyek-img">
+                <h3>Kalkulator Sederhana</h3>
+                <p class="short-desc">Kalkulator dengan operasi dasar matematika.</p>
+                <button class="btn-detail" onclick="toggleDetail('detail2')">Lihat Detail</button>
+                <div id="detail2" class="detail-desc" style="display: none;">
+                    <p>Kalkulator ini mendukung penjumlahan, pengurangan, perkalian, pembagian, dan reset. Dibuat dengan CSS Grid untuk tata letak tombol.</p>
+                </div>
+            </div>
+
+            <!-- Proyek 3 -->
+            <div class="proyek-card">
+                <img src="images/OIP.webp" alt="Proyek 3" class="proyek-img">
+                <h3>Website Cuaca</h3>
+                <p class="short-desc">Menampilkan cuaca berdasarkan nama kota.</p>
+                <button class="btn-detail" onclick="toggleDetail('detail3')">Lihat Detail</button>
+                <div id="detail3" class="detail-desc" style="display: none;">
+                    <p>Menggunakan API OpenWeatherMap. Pengguna bisa mencari cuaca di kota mana pun, dan data ditampilkan secara dinamis.</p>
+                </div>
+            </div>
+
+            <!-- Proyek 4 -->
+            <div class="proyek-card">
+                <img src="images/th (2).webp" alt="Proyek 4" class="proyek-img">
+                <h3>Gallery Foto Responsif</h3>
+                <p class="short-desc">Galeri foto dengan efek lightbox.</p>
+                <button class="btn-detail" onclick="toggleDetail('detail4')">Lihat Detail</button>
+                <div id="detail4" class="detail-desc" style="display: none;">
+                    <p>Galeri ini menggunakan CSS Grid untuk layout responsif. Saat gambar diklik, akan muncul modal dengan gambar yang lebih besar.</p>
+                </div>
+            </div>
+
+            <!-- Proyek 5 -->
+            <div class="proyek-card">
+                <img src="images/OIP (1).webp" alt="Proyek 5" class="proyek-img">
+                <h3>Form Validasi Real-time</h3>
+                <p class="short-desc">Form dengan validasi langsung saat mengetik.</p>
+                <button class="btn-detail" onclick="toggleDetail('detail5')">Lihat Detail</button>
+                <div id="detail5" class="detail-desc" style="display: none;">
+                    <p>Form ini memvalidasi nama, email, dan pesan secara langsung. Email dicek formatnya, dan pesan minimal 20 karakter. Pesan error muncul di bawah field.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== KONTAK ========== -->
+    <section id="kontak">
+        <h2 class="section-title">Hubungi Saya</h2>
+        
+        <!-- Tempat pesan error & sukses -->
+        <div id="error-message" class="message error"></div>
+        <div id="success-message" class="message success"></div>
+
+        <form id="contact-form" onsubmit="validasiForm(event)">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Alamat Email:</label>
+                <input type="email" id="email" name="email" placeholder="contoh@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="pesan">Pesan:</label>
+                <textarea id="pesan" name="pesan" rows="5" placeholder="Minimal 20 karakter..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Portofolio Saya. Dibuat dengan ❤️ untuk tugas studi kasus.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
